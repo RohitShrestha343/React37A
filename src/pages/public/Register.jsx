@@ -1,6 +1,8 @@
-import "../../css/auth.css";
-
 const Register = () => {
-  return <>This is Register Page</>;
+  return (
+    <>
+      <p>Register</p>
+    </>
+  );
 };
 export default Register;

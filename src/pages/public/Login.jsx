@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../css/auth.css";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "./schema/login.schema";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -14,8 +15,8 @@ const Login = () => {
   });
 
   console.log(errors);
-  const onLogin = (data) => {
-    console.log(data);
+  const onLogin = async (userData) => {
+    console.log(userData);
   };
 
   return (
@@ -24,7 +25,6 @@ const Login = () => {
         <div class="register-card">
           <h2>Login</h2>
           <p class="subtitle">Please Enter Valid Credentials for login</p>
-
           <form onSubmit={handleSubmit(onLogin)}>
             <div class="form-group">
               <label>Email Address</label>
