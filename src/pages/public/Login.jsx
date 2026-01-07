@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../css/auth.css";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "./schema/login.schema";
+import { apiCall } from "../../utils/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,6 +18,12 @@ const Login = () => {
   console.log(errors);
   const onLogin = async (userData) => {
     console.log(userData);
+    const loginResponse = await apiCall("POST", "/auth/login", {
+      data: userData,
+    });
+    const responseToken = loginResponse?.data?.access_token;
+    console.log(responseToken);
+    localStorage.setItem("access_token", responseToken);
   };
 
   return (
