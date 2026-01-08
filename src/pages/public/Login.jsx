@@ -24,6 +24,7 @@ const Login = () => {
     const responseToken = loginResponse?.data?.access_token;
     console.log(responseToken);
     localStorage.setItem("access_token", responseToken);
+    navigate("/product");
   };
 
   return (

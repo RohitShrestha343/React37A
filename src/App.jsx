@@ -3,12 +3,12 @@ import "./App.css";
 import React, { Suspense } from "react";
 import PrivateRoutes from "./routes/privateRoute";
 import PublicRoutes from "./routes/publicRoute";
+import AppRoutes from "./AppRoutes";
 
 const UserLogin = React.lazy(() => import("./pages/public/Login"));
 const UserRegister = React.lazy(() => import("./pages/public/Register"));
 function App() {
-  const token = localStorage.getItem("access_token");
-  return <>{token ? <PrivateRoutes /> : <PublicRoutes />}</>;
+  return <AppRoutes />;
 }
 
 export default App;
